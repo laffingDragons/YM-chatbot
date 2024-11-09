@@ -36,7 +36,7 @@ st.markdown(
 )
 
 # Display the logo at the top with a spiritual caption
-logo_path = "https://postimg.cc/4nDv9PZS"
+logo_path = "https://i.ibb.co/68jk7yK/c11ad442724a.webp"
 if os.path.exists(logo_path):
     image = Image.open(logo_path)
     st.image(image, width=100)
