@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+from PIL import Image
 
 # Initialize OpenAI client using Streamlit's secrets
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -34,7 +35,12 @@ st.markdown(
 )
 
 # Display the logo at the top with a spiritual caption
-st.image("/mnt/data/tinywow_DALL_E_2024-10-06_10.25.23_-_A_minimalist_green-themed_logo_for_an_Instagram_account_focused_on_spirituality_and_mi_66268230-removebg-preview.png", width=100)
+try:
+    image = Image.open("/mnt/data/tinywow_DALL_E_2024-10-06_10.25.23_-_A_minimalist_green-themed_logo_for_an_Instagram_account_focused_on_spirituality_and_mi_66268230-removebg-preview.png")
+    st.image(image, width=100)
+except FileNotFoundError:
+    st.error("Image file not found. Please check the path.")
+
 st.markdown("<div class='title-text'>Connect with your inner self and explore meaningful conversations</div>", unsafe_allow_html=True)
 
 # Title of the app
