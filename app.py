@@ -36,10 +36,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<div class='title-text'>Connect with your inner self and explore meaningful conversations</div>", unsafe_allow_html=True)
 
 # Title of the app
-st.title("YM Chat App")
+st.title("Mindfully Yours!")
+
+st.markdown("<div class='title-text'>Connect with your inner self and explore meaningful conversations</div>", unsafe_allow_html=True)
 
 # Initialize session state for chat history
 if "messages" not in st.session_state:
