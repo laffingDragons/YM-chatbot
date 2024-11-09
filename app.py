@@ -40,7 +40,7 @@ st.markdown(
 # Title of the app
 st.title("Mindfully Yours!")
 
-st.markdown("<div class='title-text'>Take a deep breath. Let's focus on calming your mind and body</div>", unsafe_allow_html=True)
+st.markdown("<div class='title-text'>Take a deep breath. Let's focus on calming your mind and body<br/></div>", unsafe_allow_html=True)
 
 # Initialize session state for chat history
 if "messages" not in st.session_state:
