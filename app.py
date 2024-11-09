@@ -1,6 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 from PIL import Image
+import os
 
 # Initialize OpenAI client using Streamlit's secrets
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -35,11 +36,12 @@ st.markdown(
 )
 
 # Display the logo at the top with a spiritual caption
-try:
-    image = Image.open("/mnt/data/tinywow_DALL_E_2024-10-06_10.25.23_-_A_minimalist_green-themed_logo_for_an_Instagram_account_focused_on_spirituality_and_mi_66268230-removebg-preview.png")
+logo_path = "/mnt/data/tinywow_DALL_E_2024-10-06_10.25.23_-_A_minimalist_green-themed_logo_for_an_Instagram_account_focused_on_spirituality_and_mi_66268230-removebg-preview.png"
+if os.path.exists(logo_path):
+    image = Image.open(logo_path)
     st.image(image, width=100)
-except FileNotFoundError:
-    st.error("Image file not found. Please check the path.")
+else:
+    st.error("Image file not found. Please check the path or upload a valid image.")
 
 st.markdown("<div class='title-text'>Connect with your inner self and explore meaningful conversations</div>", unsafe_allow_html=True)
 
@@ -83,7 +85,7 @@ if user_input:
 
     # Generate assistant's response
     assistant_response = get_response(user_input)
-    st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+    st.session_state.messages.append({"role": "Offers advice on personal growth, self-awareness, and overcoming challenges.", "content": assistant_response})
 
     with st.chat_message("assistant"):
         st.markdown(f"✨ {assistant_response}")
