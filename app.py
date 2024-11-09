@@ -1,12 +1,10 @@
 import streamlit as st
 from openai import OpenAI
-from PIL import Image
-import os
 
 # Initialize OpenAI client using Streamlit's secrets
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-# Customizing Streamlit with green theme, spiritual touches, and adding a logo
+# Customizing Streamlit with green theme and spiritual touches
 st.set_page_config(page_title="YM Chat App", page_icon="🌱", layout="centered")
 st.markdown(
     """
@@ -30,18 +28,13 @@ st.markdown(
             font-size: 24px;
             color: #2e7d32;
         }
+        .stApp {
+            background-color: #d5e8d4;
+        }
     </style>
     """,
     unsafe_allow_html=True
 )
-
-# Display the logo at the top with a spiritual caption
-logo_path = "https://i.ibb.co/68jk7yK/c11ad442724a.webp"
-if os.path.exists(logo_path):
-    image = Image.open(logo_path)
-    st.image(image, width=100)
-else:
-    st.error("Image file not found. Please check the path or upload a valid image.")
 
 st.markdown("<div class='title-text'>Connect with your inner self and explore meaningful conversations</div>", unsafe_allow_html=True)
 
