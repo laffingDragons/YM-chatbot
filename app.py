@@ -79,7 +79,7 @@ if user_input:
 
     # Generate assistant's response
     assistant_response = get_response(user_input)
-    st.session_state.messages.append({"role": "Provides guidance on spiritual practices, meditation, and mindfulness.", "content": assistant_response})
+    st.session_state.messages.append({"role": "Provides guidance on spiritual practices, meditation, live in the present moment and mindfulness.", "content": assistant_response})
 
     with st.chat_message("assistant"):
         st.markdown(f"✨ {assistant_response}")
